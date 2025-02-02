@@ -2,8 +2,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Verwende den Port, der von Render bereitgestellt wird, oder 3001 für lokale Entwicklung
+/// Verwende den Port, der von Render bereitgestellt wird, oder 3001 für lokale Entwicklung
 const port = process.env.PORT || 3001;  // Hier wird `port` einmal definiert
+
+app.listen(port, () => {
+    console.log(`Server läuft auf http://localhost:${port}`);
+});
 
 // Start des Servers
 app.listen(port, () => {
