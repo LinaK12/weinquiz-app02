@@ -1,3 +1,6 @@
+// API-URL verwenden, die in Render gesetzt wurde, oder localhost für lokale Tests
+const apiUrl = process.env.API_URL || 'http://localhost:3000';  // Falls lokal, wird localhost verwendet
+
 fetch('http://localhost:3000/api/quiz')
     .then(response => response.json())
     .then(data => {
