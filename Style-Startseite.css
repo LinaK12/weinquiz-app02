@@ -1,0 +1,589 @@
+html {
+  scroll-behavior: smooth; /* Sanftes Scrollen aktivieren */
+}
+
+/* Steuerung der Box*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(45deg, #E3D2C4 0%, #FCFCFB 50%);
+  font-family: "Ubuntu", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.navbar {
+  height: 70px;
+  background-color: #F6F6F6;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 24px;
+  padding-inline: 24px;
+}
+
+.menu-links a {
+  font-weight: 500;
+  color: #333333;
+  padding: 8px 16px;
+}
+
+.menu-links a:hover {
+  color: #333333;
+}
+
+.menu-btn {
+  width: 35px;
+  height: 25px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #333333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animation fÃ¼r das Hamburger-MenÃ¼ */
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #F6F6F6;
+  position: absolute;
+  top: 70px;
+  right: 20px; /* Angepasst */
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-10px);
+  z-index: 1;
+}
+
+.dropdown-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  color: #999999;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.dropdown-menu a:hover {
+  color: #333333;
+  background-color: #E8E8E8;
+}
+
+@media (max-width: 53rem) {
+  .menu {
+    display: none; /* Links verstecken */
+  }
+
+  .menu-btn {
+    display: flex; /* Hamburger-MenÃ¼ anzeigen */
+  }
+}
+
+span {
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px; /* Abstand zum Text */
+  width: 80%;
+  height: 3px;
+  background-color: #990100;
+  transform-origin: center;
+  transform: translate(-50%, 0) scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.nav-link:hover::before {
+  transform: translate(-50%, 0) scaleX(1);
+}
+
+
+/* Startbild-Bereich */
+.Startbild {
+    position: relative;
+    height: 400px;
+    background: url('wein-startbild.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    z-index: -1;
+}
+
+
+
+/* 1. Zwischenabschnitt: Geschichte */
+html {
+  font-size: 14px;
+}
+body {
+  background: #f6f9fc;
+  color: #1a1a1a;
+}
+h1{
+  margin: 2%;
+  font-size: 2.2rem;
+  font-style: bold;
+}
+
+h2 {
+  margin: 5%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 100;
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin: 3% auto;
+}
+.timeline__event {
+  background: #fff;
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+.timeline__event__title {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #990100;
+  letter-spacing: 1.5px;
+}
+.timeline__event__content {
+  padding: 10px;
+}
+.timeline__event__date {
+  color: #F6F6F6;
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.timeline__event__icon {
+  border-radius: 8px 0 0 8px; /* Einheitlich für alle */
+  background: #990100; /* Dunkelrot wie bei den anderen */
+  display: flex;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 40%;
+  max-width: 272px;
+  font-size: 2rem;
+  color: #F6F6F6;
+  padding: 20px;
+}
+
+.timeline__event__icon i {
+  position: absolute;
+  top: 50%;
+  left: -65px;
+  font-size: 2rem;
+  transform: translateY(-50%);
+}
+.timeline__event__description {
+  flex-basis: 60%;
+}
+.timeline__event:after {
+  content: "";
+  width: 2px;
+  height: 105%;
+  background: #990100;
+  position: absolute;
+  top: 52%;
+  transform: translateY(-50%);
+  left: -3.5rem;
+  z-index: -1;
+}
+.timeline__event:before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  background: #d44c4c;
+  border-radius: 100%;
+  left: -4.5rem;
+  right: 90%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid #990100;
+}
+
+.timeline__hidden {
+  display: none;
+}
+
+.toggle-button {
+  margin: 20px auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #990100;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.toggle-button:hover {
+  background-color: #d44c4c;
+}
+
+@media (max-width: 786px) {
+  .timeline__event {
+    flex-direction: column;
+  }
+  .timeline__event__icon {
+    border-radius: 4px 4px 0 0;
+  }
+}
+
+/* Abschnitt 1: Weinkarte */
+.weinkarte-container {
+  background:#990100;
+  min-height: 90vh; /* Passt sich an die BildschirmhÃ¶he an */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  gap: 20px;
+  text-align: center;
+}
+
+.weinkarte-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%; /* FÃ¼llt die gesamte Breite */
+  height: auto; /* Passt sich dynamisch an den Inhalt an */
+  max-width: 100%; /* Verhindert, dass es Ã¼ber den Bildschirmrand hinausgeht */
+  overflow: hidden;
+  background: #990100;
+  box-sizing: border-box;
+}
+
+.weinkarte-container img {
+  max-width: 90%; /* Passt sich der Breite des Containers an */
+  margin-top: 5%;
+  height: auto; /* HÃ¤lt das SeitenverhÃ¤ltnis */
+  object-fit: cover; /* Sorgt fÃ¼r eine gleichmÃ¤ÃŸige Darstellung */
+  border-radius: 10px;
+}
+
+.kartenüberschrift {
+  position: absolute;
+  top: 5%; /* Mehr Abstand nach unten */
+  left: 4%;
+  font-size: 2.2rem; /* Dynamische Schriftgröße */
+  color: #f6f6f6;
+  margin: 0; /* Entfernen des zusätzlichen Margin */
+  font-style: bold;
+}
+
+.kartentext {
+  position: absolute;
+  top: 20%; /* Mehr Abstand nach unten */
+  left: 6%;
+  font-size: clamp(0.9rem, 2vw, 1.2rem); /* Dynamische Schriftgröße */
+  max-width: 90%;
+  margin: 0; /* Entfernen des zusätzlichen Margin */
+  color: #f6f6f6;
+  text-align: left;
+}
+
+.bild-container {
+  position: relative; /* Setzt den Kontext fÃ¼r absolute Positionierung */
+  display: inline-block;
+  width: 100%; /* Passt sich der Breite des Ã¼bergeordneten Containers an */
+}
+
+.weinkarte-bild {
+  width: 100%; /* Passt die Breite an */
+  max-width: 90vw; /* Begrenzung auf maximal 90% der Viewport-Breite */
+  height: auto; /* BehÃ¤lt das SeitenverhÃ¤ltnis */
+  max-height: 50vh; /* Begrenzung auf maximal 50% der Viewport-HÃ¶he */
+  object-fit: contain; /* Verhindert Verzerrungen */
+  display: block;
+  margin: auto; /* Zentriert das Bild horizontal */
+  border-radius: 10px;
+}
+/* statisches iframe*/ 
+iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  pointer-events: none; /* Deaktiviert Interaktion */
+}
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.weinkarte-button {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem); /* Dynamische SchriftgrÃ¶ÃŸe */
+  background-color: #990100;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.weinkarte-button:hover {
+  background-color: #d44c4c;
+}
+
+/* Abschnitt 2: Quiz */
+.Quizbild {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;  /* Stellt sicher, dass die Elemente untereinander angezeigt werden */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #990100;  /* Optionaler roter Hintergrund */
+  z-index: 1; /* Stellt sicher, dass der Inhalt über dem Bild bleibt */
+}
+
+/* Überschrift */
+.Quizbild h1 {
+  color: #fff;  /* Weißer Text */
+  font-size: 2.5rem;  /* Schriftgröße */
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+/* Text unter der Überschrift */
+.Quizbild p {
+  color: #fff;  /* Weißer Text */
+  font-size: 1.25rem;
+  margin: 0 0 20px 0;  /* Abstand zum Bild und Button */
+}
+
+/* Quiz-Bild */
+.quiz-image img {
+  width: 80%;  /* Bildgröße anpassen */
+  height: auto;
+  border-radius: 8px;  /* Optional: Abgerundete Ecken */
+  z-index: 0;  /* Sicherstellen, dass das Bild hinter dem Text ist */
+}
+
+/* Button für das Quiz */
+.quiz-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #fff;  /* Weiße Hintergrundfarbe für den Button */
+  color: #990100;  /* Rote Schriftfarbe */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  z-index: 2;  /* Sicherstellen, dass der Button oben bleibt */
+}
+
+.quiz-button:hover {
+  background-color: #d44c4c;  /* Button Hover-Farbe */
+}
+
+
+/* Abschnitt 3: Test */
+.test-container {
+  width: 100%;
+  top: 220px;
+  height: 500px;
+  position: relative;
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 35px;
+  gap: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.test-button {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem); /* Dynamische SchriftgrÃ¶ÃŸe */
+  background-color: #990100;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.test-button:hover {
+  background-color: #d44c4c;
+}
+
+/* Footer */
+#footer {
+  background-color: #990100;  /* Roter Hintergrund */
+  color: white;  /* Textfarbe weiß */
+  padding: 30px;  /* Etwas mehr Abstand oben und unten */
+  text-align: left;
+  font-family: Roboto, sans-serif; /* Einfacher, gut lesbarer Font */
+}
+
+/* Footer-Inhalt */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Footer Link für "Impressum & Datenschutz" */
+.footer-links {
+  text-align: left;  /* Links linksbündig ausrichten */
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #f7f7f7;  /* Helle Schriftfarbe für den Link */
+  text-decoration: none;  /* Kein Unterstrich */
+  font-weight: bold;  /* Fettdruck für den Link */
+  font-size: 18px;  /* Etwas kleinere Schriftgröße für den Link */
+  transition: color 0.3s ease;  /* Sanfter Farbübergang */
+}
+
+/* Hover-Effekt für den Link */
+.footer-links a:hover {
+  color: #d44c4c;  /* Hellrot beim Hover */
+  text-decoration: underline;  /* Unterstreichen bei Hover */
+}
+
+/* Container für Impressum und Datenschutz nebeneinander */
+.footer-texts {
+  display: flex;
+  gap: 50px;  /* Abstand zwischen den beiden Containern */
+}
+
+/* Abschnitt Impressum */
+.impressum-container,
+.datenschutz-container {
+  width: 45%;  /* Beide Abschnitte nehmen je 45% der Breite ein */
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Überschriften in Impressum und Datenschutz */
+.impressum-container h3,
+.datenschutz-container h3 {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Text in Impressum und Datenschutz */
+.impressum-container p,
+.datenschutz-container p {
+  margin: 5px 0;
+  color: #fff;
+}
+
+/* Hervorhebung von Haftung für Inhalte und Links */
+.impressum-container em,
+.datenschutz-container em {
+  font-style: italic;
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #990100; 
+  font-size: 0.9rem;       
+}

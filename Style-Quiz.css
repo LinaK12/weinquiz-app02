@@ -1,0 +1,152 @@
+/* Allgemeine Hintergrundfarbe und Vereinheitlichung der Schriftarten */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;  /* Vereinheitlichung der Schriftart */
+    background-color: #F2F2F2;  /* Hellgrauer Hintergrund passend zur Startseite */
+    text-align: center; /* Zentriert den gesamten Text im body */
+}
+
+/* Startbild (der Quiz-Bereich) */
+.Startbild {
+    position: relative;
+    height: 250px;
+    background-color: #990100; /* Dunkles Rot passend zur Startseite */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center; /* Zentriert den Text im Startbild */
+}
+
+/* Container für das Quiz */
+.quiz-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 1.2rem;
+    text-align: center; /* Zentriert den Text im Quiz-Container */
+}
+
+/* Frage-Text */
+.question {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* Zentriert die Frage */
+}
+
+/* Antwort-Buttons */
+/* Container für die Antwort-Buttons */
+.answers {
+    display: flex;               /* Flexbox aktiviert */
+    flex-direction: column;      /* Stellt sicher, dass die Buttons untereinander stehen */
+    align-items: center;         /* Zentriert die Buttons horizontal */
+    justify-content: center;     /* Optional: Zentriert den Inhalt auch vertikal */
+    width: 100%;                 /* Damit der Container die ganze Breite einnimmt */
+}
+
+/* Antwort-Buttons */
+.answers button {
+    margin: 20px 0;  /* Mehr Abstand zwischen den Buttons */
+    padding: 30px;   /* Dickerer Button durch mehr Padding */
+    font-size: 1rem;
+    background-color: #990100; 
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    width: 500px;     /* Einheitliche Breite für alle Buttons */
+    display: block;  /* Stellt sicher, dass die Buttons untereinander angezeigt werden */
+    transition: background-color 0.3s ease;
+    text-align: center; /* Zentriert den Text im Button */
+}
+
+.answers button:hover {
+    background-color: #d44c4c; /* Dunkleres Rot bei Hover */
+}
+
+
+/* Ergebnis-Text */
+.result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    text-align: center; /* Zentriert das Ergebnis */
+}
+
+/* Button für die nächste Frage */
+.quiz-button {
+    padding: 12px 20px;
+    background-color: #990100;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Zentriert den Text auf dem Button */
+}
+
+.quiz-button:hover {
+    background-color: #d44c4c;
+}
+
+/* Anpassungen für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 20px 30px;
+    }
+
+    .question {
+        font-size: 2rem;
+    }
+
+    .answers button {
+        font-size: 1rem;
+    }
+}
+
+.back-button {
+    position: fixed;               /* Fixe Position im Browserfenster */
+    bottom: 20px;                  /* Abstand vom unteren Rand */
+    left: 20px;                   /* Abstand vom rechten Rand */
+    display: inline-block;
+    width: 50px;                   /* Größe des Buttons */
+    height: 50px;
+    border-radius: 50%;            /* Runder Button */
+    background-color: rgba(0, 0, 0, 0.2); /* Halbtransparenter (schwarzer) Hintergrund */
+    text-decoration: none;         /* Keine Unterstreichung */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 9999;                 /* Über allen anderen Elementen */
+  }
+  
+  /* Hover-Effekt (optional) */
+  .back-button:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* Weniger transparent beim Drüberfahren */
+
+     /* Optional: Schatten bei Hover vergrößern oder "anheben" */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+  }
+  
+  /* Pseudo-Element für ein kleines Symbol oder Text */
+  .back-button::before {
+    content: "↩";                /* Unicode-Pfeil als Beispiel */
+    display: block;
+    text-align: center;
+    line-height: 50px;           /* Vertikale Zentrierung im Button */
+    color: #fff;                 /* Weiße Schrift */
+    font-size: 24px;
+  }

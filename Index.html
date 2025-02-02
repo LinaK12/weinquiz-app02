@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Verhindert das Indexieren der Seite durch Suchmaschinen und Bots -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Wein Startseite</title>
+    <link rel="stylesheet" href="Style-Startseite.css"> 
+
+</head>
+<body>
+
+    <!-- Navigationsleiste -->
+    <nav class="navbar">
+        <div class="logo">
+          <a href="#">WEINWELTEN</a>
+        </div>
+        <div class="menu">
+            <div class="menu-links">
+                <ul>
+                    <span class="nav-link"><a href="Index.html">Start</a></span>
+                    <span class="nav-link"><a href="Index-Karte.html">Karte</a></span>
+                    <span class="nav-link"><a href="Index-Quiz.html">Quiz</a></span>
+                    <span class="nav-link"><a href="Index-Selbsttest.html">Test</a></span>
+                    <span class="nav-link"><a href="#">Impressum</a></span>
+                </ul>                
+            </div>
+        </div>
+        <div class="menu-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="dropdown-menu">
+            <a href="#">Start</a>
+            <a href="#">Karte</a>
+            <a href="#">Quiz</a>
+            <a href="#">Test</a>
+            <a href="#">Impressum</a>
+        </div>
+    </nav>
+
+    <!-- Startbild -->
+    <section class="Startbild"></section>
+
+    <!-- 1. Zwischenabschnitt: Geschichte -->
+    <section id="geschichte" class="section Geschichte">
+        <div class="geschichte-container">
+            <h1 class="geschichteüberschrift">Die Geschichte des Weins:</h1>
+            <div class="timeline">
+                <!-- Sichtbare Events -->
+                <div class="timeline__visible">
+                    <div class="timeline__event animated fadeInUp delay-3s">
+                        <div class="timeline__event__icon">
+                            <i class="lni-cake"></i>
+                            <div class="timeline__event__date">6000-1000 v. Chr.</div>
+                        </div>
+                        <div class="timeline__event__content">
+                            <div class="timeline__event__title">Die Ursprünge des Weins</div>
+                            <div class="timeline__event__description">
+                                <p>Die Geschichte des Weins beginnt vor über 8000 Jahren in der Region des heutigen Georgiens, wo Menschen erstmals wilde Trauben kultivierten und fermentierten.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__event animated fadeInUp delay-2s">
+                        <div class="timeline__event__icon">
+                            <i class="lni-burger"></i>
+                            <div class="timeline__event__date">1000 v. Chr.-500 n. Chr.</div>
+                        </div>
+                        <div class="timeline__event__content">
+                            <div class="timeline__event__title">Antike Hochkulturen und die Verbreitung des Weinbaus</div>
+                            <div class="timeline__event__description">
+                                <p>Die Griechen machten Wein zu einem Symbol von Kultur und Geselligkeit. Durch den Handel und die Kolonisation verbreiteten sie den Weinbau im Mittelmeerraum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__visible">
+                    <div class="timeline__event animated fadeInUp delay-1s">
+                        <div class="timeline__event__icon">
+                            <i class="lni-slim"></i>
+                            <div class="timeline__event__date">500-1500 n.Chr.</div>
+                        </div>
+                        <div class="timeline__event__content">
+                            <div class="timeline__event__title">Mittelalter - Bewahrung und Innovation</div>
+                            <div class="timeline__event__description">
+                                <p>Nach dem Zerfall des Römischen Reichs waren es vor allem Klöster, die den Weinbau bewahrten und weiterentwickelten.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- 1. Abschnitt: Weinkarte -->
+ <section id="weinkarte" class="section weinkarte">
+    <div class="weinkarte-container">
+        <h1 class="kartenüberschrift">Entdecke die Welt der Weine!</h1>
+        <p class="kartentext">Entdecken Sie die deutschen Weinanbaugebiete</p>
+        <div class="bild-container">
+            <iframe src="Index-Karte.html"></iframe>
+            <a href="Index-Karte.html">
+                <button class="weinkarte-button">Zur Weinkarte</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- 2. Abschnitt: Quiz -->
+    <section class="Quizbild">
+        <h1>Teste dein Weinwissen</h1>
+        <p>Wie gut kennst du dich mit Wein aus? Beweise dein Wissen und entdecke spannende Fakten...</p>
+        <div class="quiz-image">
+          <img src="Quiz-Bild.jpg" alt="Quiz Bild">
+        </div>
+        <button class="quiz-button">Zum Quiz</button>
+      </section>
+      
+
+   <!-- 3. Abschnitt: Test -->
+    <section id="test" class="section card">
+        <div class="test-container">
+        <h1 class="testüberschrift">Test: Welcher Wein passt zu dir?</h1>
+        <p class="testtext">Wein ist mehr als nur ein Getränk - er ist ein Erlebnis. Doch der richtige Wein kann eine wahre Entfaltung der Sinne bewirken...</p>
+        <a href="Index-Selbsttest.html" class="test-button">Zum Test</a>
+    </div>
+</section>
+
+    <!-- Footer -->
+<section id="footer" class="section footer">
+    <div class="footer-content">
+        <!-- Footer Link für "Impressum & Datenschutz" -->
+        <div class="footer-links">
+            <a href="#impressum-datenschutz">Impressum & Datenschutz</a>
+        </div>
+
+        <!-- Container für Impressum und Datenschutz nebeneinander -->
+        <div id="impressum-datenschutz" class="footer-texts">
+            <!-- Impressum-Informationen -->
+            <div id="impressum" class="impressum-container">
+                <h3>Impressum</h3>
+                <p><strong>Angaben gemäß § 5 TMG</strong></p>
+                <p>Weinweb GmbH</p>
+                <p>Weinstraße 25</p>
+                <p>12345 Weinheim</p>
+                <p>Deutschland</p>
+                <p><strong>Vertreten durch:</strong></p>
+                <p>Frau Lina Knöll</p>
+                <p><strong>Kontakt:</strong></p>
+                <p>Telefon: +49 (0) 123 456 789</p>
+                <p>E-Mail: info@weinweb.de</p>
+                <p><strong>Umsatzsteuer-ID:</strong></p>
+                <p>DE123456789</p>
+            </div>
+
+            <!-- Datenschutzerklärung -->
+            <div id="datenschutz" class="datenschutz-container">
+                <h3>Datenschutzerklärung</h3>
+                <p>Wir freuen uns über Ihren Besuch auf unserer Webseite. Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Im Folgenden informieren wir Sie gemäß Art. 13 DSGVO über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten.</p>
+                <p>Weitere Informationen und Details finden Sie auf unserer vollständigen Datenschutzerklärung.</p>
+            </div>
+        </div>
+    </div>
+
+<div class="footer-bottom">
+    <p>&copy; <span id="currentYear"></span> Weinwelten. Alle Rechte vorbehalten.</p>
+</div>
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>

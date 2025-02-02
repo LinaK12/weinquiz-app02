@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weinanbaugebiete in Deutschland</title>
+    <link rel="stylesheet" href="Style-Karte.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+    <!-- Karte -->
+    <div id="map"></div>
+
+    <!-- Infobox -->
+    <div id="info">
+        <!-- Buttons für Vorder- und Rückseite -->
+        <button id="close-info" class="close-button">X</button>
+        <button id="rotate-info" class="rotate-button">↻</button>
+
+        <!-- Vorderseite der Infobox -->
+        <div class="front">
+            <img src="" alt="Region" id="info-image">
+            <div class="caption">
+                <h2 id="info-title"></h2>
+                <p id="info-description"></p>
+            </div>
+        </div>
+
+        <!-- Rückseite der Infobox -->
+        <div class="back">
+            <div class="caption">
+                <p id="info-back-description">Weitere Informationen zur Region...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skripte -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="Karte.js"></script>
+
+    <!-- Button zurück zur Startseite -->
+    <a href="Index.html" class="back-button" aria-label="Zur Startseite"></a>
+    
+    
+</body>
+</html>
+

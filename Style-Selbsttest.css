@@ -1,0 +1,83 @@
+body {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(45deg, #E3D2C4 0%, #FCFCFB 50%);
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+#quiz-container {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+#question-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+#answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    background-color: #990100;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d44c4c;
+}
+
+#result-container {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #990100;
+    font-size: 1.2rem;
+}
+
+.back-button {
+    position: fixed;               /* Fixe Position im Browserfenster */
+    bottom: 20px;                  /* Abstand vom unteren Rand */
+    left: 20px;                   /* Abstand vom rechten Rand */
+    display: inline-block;
+    width: 50px;                   /* Größe des Buttons */
+    height: 50px;
+    border-radius: 50%;            /* Runder Button */
+    background-color: rgba(0, 0, 0, 0.2); /* Halbtransparenter (schwarzer) Hintergrund */
+    text-decoration: none;         /* Keine Unterstreichung */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 9999;                 /* Über allen anderen Elementen */
+}
+
+/* Hover-Effekt (optional) */
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* Weniger transparent beim Drüberfahren */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Optional: Schatten bei Hover vergrößern */
+}
+
+/* Pseudo-Element für ein kleines Symbol oder Text */
+.back-button::before {
+    content: "↩";                /* Unicode-Pfeil als Beispiel */
+    display: block;
+    text-align: center;
+    line-height: 50px;           /* Vertikale Zentrierung im Button */
+    color: #fff;                 /* Weiße Schrift */
+    font-size: 24px;
+}

@@ -1,0 +1,170 @@
+/* Karte */
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Vollständige Höhe */
+    z-index: 1;
+    filter: none;
+}
+
+
+/* Infobox */
+#info {
+    display: none;
+    position: fixed;
+    top: 50%; /* Vertikale Zentrierung */
+    right: 10px; /* Positioniert die Infobox am rechten Rand */
+    transform: translateY(-50%) rotate(0deg); /* Keine Rotation, um Schiefstellung zu vermeiden */
+    z-index: 1000; /* Sicherstellen, dass die Infobox immer oben ist */
+    width: 500px; /* Reduzierte Breite der Infobox */
+    height: 500px; /* Reduzierte Höhe der Infobox */
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Schatten für Polaroid-Effekt */
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
+    border: 10px solid #fff; /* Weißer Rand für Polaroid-Effekt */
+}
+
+/* Infobox Bild */
+#info-image {
+    width: 80%; /* Das Bild soll 80% der Infobox-Breite einnehmen */
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Zentriert das Bild horizontal */
+}
+
+/* Textbereich */
+#info .caption {
+    margin-top: 15px;
+    overflow-y: auto;
+    max-height: 180px; /* Reduzierte maximale Höhe des Textbereichs */
+}
+
+#info h2 {
+    font-size: 20px; /* Kleinere Schriftgröße für den Titel */
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+    text-align: center; /* Titel zentrieren */
+}
+
+#info p {
+    font-size: 16px; /* Kleinere Schriftgröße für den Text */
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Schließen-Button */
+#info .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    z-index: 1000; /* Überlappt das Bild */
+    cursor: pointer;
+}
+
+/* Drehen-Button */
+#info .rotate-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 18px;
+    color: #555;
+    z-index: 1000; /* Sicherstellen, dass der Button sichtbar bleibt */
+    cursor: pointer;
+}
+
+/* Infobox-Drehung */
+#info {
+    perspective: 1000px;
+}
+
+#info .front, 
+#info .back {
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+#info.flipped .front {
+    transform: rotateY(180deg);
+}
+
+#info.flipped .back {
+    transform: rotateY(0deg);
+}
+
+#info .front {
+    position: relative;
+    transform: rotateY(0deg);
+}
+
+#info .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(-180deg);
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Karte im Hintergrund verschwommen lassen */
+.blur-map #map {
+    filter: blur(3px);
+}
+
+.back-button {
+    position: fixed;               /* Fixe Position im Browserfenster */
+    bottom: 20px;                  /* Abstand vom unteren Rand */
+    left: 20px;                   /* Abstand vom rechten Rand */
+    display: inline-block;
+    width: 50px;                   /* Größe des Buttons */
+    height: 50px;
+    border-radius: 50%;            /* Runder Button */
+    background-color: rgba(0, 0, 0, 0.2); /* Halbtransparenter (schwarzer) Hintergrund */
+    text-decoration: none;         /* Keine Unterstreichung */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 9999;                 /* Über allen anderen Elementen */
+  }
+  
+  /* Hover-Effekt (optional) */
+  .back-button:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* Weniger transparent beim Drüberfahren */
+
+     /* Optional: Schatten bei Hover vergrößern oder "anheben" */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+  }
+  
+  /* Pseudo-Element für ein kleines Symbol oder Text */
+  .back-button::before {
+    content: "↩";                /* Unicode-Pfeil als Beispiel */
+    display: block;
+    text-align: center;
+    line-height: 50px;           /* Vertikale Zentrierung im Button */
+    color: #fff;                 /* Weiße Schrift */
+    font-size: 24px;
+  }
+  
