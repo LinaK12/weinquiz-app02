@@ -2,21 +2,29 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const port = process.env.PORT || 3001;  // ✅ PORT von Render
+const port = process.env.PORT || 3001;
 
-// Statische Dateien bereitstellen
-app.use(express.static(path.join(__dirname, '..')));
+// 1. KORREKTER STATISCHER DATEI-PFAD
+// Gehe einen Ordner hoch (aus "Server") und dann in "Weinwebseite"
+app.use(express.static(path.join(__dirname, '../Weinwebseite')));  // 🚨 Wichtig: '../Weinwebseite'
 
-// API-Endpunkt
+// 2. FALLBACK FÜR SINGLE-PAGE-APPS
+// Alle nicht-API-Routen zur index.html leiten
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Weinwebseite', 'index.html'));
+});
+
+// 3. API-ENDPUNKT
 app.get('/api/quiz', (req, res) => {
     res.json(quizQuestions);
 });
 
-// Server starten
-const apiUrl = process.env.API_URL || `http://localhost:${port}`;
+// 4. CORS FÜR PRODUKTION AKTIVIEREN (falls nötig)
+const cors = require('cors');
+app.use(cors());  // 🔄 Füge dies HINZU
 
 app.listen(port, () => {
-    console.log(`Server läuft auf ${apiUrl}`);  // ✅ Korrekte URL
+    console.log(`Server läuft auf Port ${port}`);
 });
 
 // Fragen und Antworten direkt im Code definiert
