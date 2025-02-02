@@ -3,18 +3,7 @@ const path = require('path');
 const app = express();
 
 // API-URL verwenden, die in Render gesetzt wurde, oder localhost für lokale Tests
-const port = process.env.PORT || 3001;  // Wenn `process.env.PORT` gesetzt ist, wird dieser verwendet, ansonsten 3001 für lokal
-
-// Host für das Log festlegen
-const host = process.env.NODE_ENV === 'production' ? 'https://weinquiz-app02.onrender.com' : 'http://localhost';
-
-app.listen(port, () => {
-    console.log(`Server läuft auf ${host}:${port}`);
-});
-
-
-
-
+const apiUrl = process.env.API_URL || 'http://localhost:3001';   // Wenn `process.env.PORT` gesetzt ist, wird dieser verwendet, ansonsten 3001 für lokal
 
 // Statische Dateien aus dem Oberordner 'Weinwebseite' bereitstellen
 app.use(express.static(path.join(__dirname, '..')));  // '..' geht einen Ordner nach oben, um auf 'Weinwebseite' zuzugreifen
@@ -286,15 +275,11 @@ const quizQuestions = [
     ]
   },
 ];
-// API-Endpunkt für das Quiz
-app.get('/quiz', (req, res) => {
-    res.json(quizQuestions);  // Gibt die Fragen und Antworten korrekt zurück
+// 🛠️ Ändere von '/quiz' zu '/api/quiz'
+app.get('/api/quiz', (req, res) => {  // Endpoint auf '/api/quiz' setzen
+  res.json(quizQuestions);
 });
 
-// API-URL verwenden, die in Render gesetzt wurde
-const apiUrl = process.env.API_URL || `http://localhost:${port}`;  // API-URL von Render oder localhost für lokal
-
-// Start des Servers
 app.listen(port, () => {
-    console.log(`Server läuft auf ${apiUrl}`);  // Zeigt die URL an, unter der der Server läuft
+  console.log(`Server läuft auf ${host}:${port}`);
 });

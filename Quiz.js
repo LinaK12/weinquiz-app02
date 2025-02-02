@@ -1,9 +1,6 @@
-// API-URL verwenden, die in Render gesetzt wurde, oder localhost für lokale Tests
-const apiUrl = process.env.API_URL || 'http://localhost:3001';  // Falls lokal, wird localhost verwendet
-
-// Fetch-Anfrage an die API
-fetch(`${apiUrl}/api/quiz`)  // Verwendet die apiUrl-Variable
-    .then(response => response.json())
+const apiUrl = process.env.API_URL || 'http://localhost:3001';  
+fetch(`${apiUrl}/api/quiz`)  
+  .then(response => response.json())
     .then(data => {
         let currentQuestionIndex = 0;
         const questionText = document.getElementById('question-text');
