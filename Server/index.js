@@ -6,12 +6,13 @@ const port = process.env.PORT || 3001;
 
 // 1. KORREKTER STATISCHER DATEI-PFAD
 // Gehe einen Ordner hoch (aus "Server") und dann in "Weinwebseite"
-app.use(express.static(path.join(__dirname, '../Weinwebseite')));  // 🚨 Wichtig: '../Weinwebseite'
+// Statischen Ordner für die Webdateien (HTML, CSS, Bilder) setzen
+app.use(express.static(path.join(__dirname, '..', 'Weinwebseite')));
 
 // 2. FALLBACK FÜR SINGLE-PAGE-APPS
 // Alle nicht-API-Routen zur index.html leiten
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Weinwebseite', 'Index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Weinwebseite', 'Index.html'));
 });
 
 // 3. API-ENDPUNKT
@@ -21,7 +22,7 @@ app.get('/api/quiz', (req, res) => {
 
 // 4. CORS FÜR PRODUKTION AKTIVIEREN (falls nötig)
 const cors = require('cors');
-app.use(cors());  // 🔄 Füge dies HINZU
+app.use(cors());  
 
 app.listen(port, () => {
     console.log(`Server läuft auf Port ${port}`);
