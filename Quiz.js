@@ -1,4 +1,4 @@
-fetch('http://localhost:3001/quiz')
+fetch('http://localhost:3000/api/quiz')
     .then(response => response.json())
     .then(data => {
         let currentQuestionIndex = 0;

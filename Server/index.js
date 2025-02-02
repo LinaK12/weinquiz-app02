@@ -1,7 +1,17 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3001;
+
+// Verwende den Port, der von Render bereitgestellt wird, oder 3001 für lokale Entwicklung
+const port = process.env.PORT || 3001;  // Hier wird `port` einmal definiert
+
+// Start des Servers
+app.listen(port, () => {
+    console.log(`Server läuft auf http://localhost:${port}`);
+});
+
+
+
 
 // Statische Dateien aus dem Oberordner 'Weinwebseite' bereitstellen
 app.use(express.static(path.join(__dirname, '..')));  // '..' geht einen Ordner nach oben, um auf 'Weinwebseite' zuzugreifen
@@ -278,7 +288,10 @@ app.get('/quiz', (req, res) => {
     res.json(quizQuestions);  // Gibt die Fragen und Antworten korrekt zurück
 });
 
+// API-URL verwenden, die in Render gesetzt wurde
+const apiUrl = process.env.API_URL || `http://localhost:${port}`;  // API-URL von Render oder localhost für lokal
+
 // Start des Servers
 app.listen(port, () => {
-    console.log(`Server läuft auf http://localhost:${port}`);
+    console.log(`Server läuft auf ${apiUrl}`);  // Zeigt die URL an, unter der der Server läuft
 });
