@@ -7,12 +7,12 @@ const port = process.env.PORT || 3001;
 // 1. KORREKTER STATISCHER DATEI-PFAD
 // Gehe einen Ordner hoch (aus "Server") und dann in "Weinwebseite"
 // Statischen Ordner für die Webdateien (HTML, CSS, Bilder) setzen
-app.use(express.static(path.join(__dirname, '..', 'Weinwebseite')));
+// Statische Dateien aus "Weinwebseite" bereitstellen
+app.use(express.static(path.join(__dirname, "../Weinwebseite")));
 
-// 2. FALLBACK FÜR SINGLE-PAGE-APPS
-// Alle nicht-API-Routen zur index.html leiten
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'Weinwebseite', 'Index.html'));
+// Client-Routing: Alle Routen zur Index.html leiten
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Weinwebseite", "Index.html")); // "
 });
 
 // 3. API-ENDPUNKT
