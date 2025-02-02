@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '../Weinwebseite')));  // 🚨 Wicht
 // 2. FALLBACK FÜR SINGLE-PAGE-APPS
 // Alle nicht-API-Routen zur index.html leiten
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Weinwebseite', 'index.html'));
+    res.sendFile(path.join(__dirname, '../Weinwebseite', 'Index.html'));
 });
 
 // 3. API-ENDPUNKT
