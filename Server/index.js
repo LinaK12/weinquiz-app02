@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+const port = process.env.PORT || 3001;
 // API-URL verwenden, die in Render gesetzt wurde, oder localhost für lokale Tests
 const apiUrl = process.env.API_URL || 'http://localhost:3001';   // Wenn `process.env.PORT` gesetzt ist, wird dieser verwendet, ansonsten 3001 für lokal
 
@@ -130,7 +131,7 @@ const quizQuestions = [
       { answer_text: "Rauchwein", is_correct: false },
       { answer_text: "Hipocras", is_correct: true },
     ]
-  },
+  }, 
   {
     question_text: "Von wem stammt folgenes Zitat: \"Das Leben ist zu kurz um schlechten Wein zu trinken\".",
     answers: [
