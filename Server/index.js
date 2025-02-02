@@ -2,13 +2,22 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const port = process.env.PORT || 3001;
-// API-URL verwenden, die in Render gesetzt wurde, oder localhost für lokale Tests
-const apiUrl = process.env.API_URL || 'http://localhost:3001';   // Wenn `process.env.PORT` gesetzt ist, wird dieser verwendet, ansonsten 3001 für lokal
+const port = process.env.PORT || 3001;  // ✅ PORT von Render
 
-// Statische Dateien aus dem Oberordner 'Weinwebseite' bereitstellen
-app.use(express.static(path.join(__dirname, '..')));  // '..' geht einen Ordner nach oben, um auf 'Weinwebseite' zuzugreifen
+// Statische Dateien bereitstellen
+app.use(express.static(path.join(__dirname, '..')));
 
+// API-Endpunkt
+app.get('/api/quiz', (req, res) => {
+    res.json(quizQuestions);
+});
+
+// Server starten
+const apiUrl = process.env.API_URL || `http://localhost:${port}`;
+
+app.listen(port, () => {
+    console.log(`Server läuft auf ${apiUrl}`);  // ✅ Korrekte URL
+});
 
 // Fragen und Antworten direkt im Code definiert
 const quizQuestions = [
@@ -276,11 +285,3 @@ const quizQuestions = [
     ]
   },
 ];
-// 🛠️ Ändere von '/quiz' zu '/api/quiz'
-app.get('/api/quiz', (req, res) => {  // Endpoint auf '/api/quiz' setzen
-  res.json(quizQuestions);
-});
-
-app.listen(port, () => {
-  console.log(`Server läuft auf ${host}:${port}`);
-});
